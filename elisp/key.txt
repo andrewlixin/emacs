@@ -1,0 +1,38 @@
+*Selective Display
+To hide lines, type `C-x $' (`set-selective-display') with a numeric argument N. 
+Lines with at least N columns of indentation disappear from the screen.
+To make everything visible again, type `C-x $' with no argument.
+
+C-M-a beginning-of-defun
+     Move to beginning of current or preceding defun
+     (`beginning-of-defun').
+
+
+C-M-e end-of-defun
+ Move to end of current or following defun (`end-of-defun').
+
+C-M-h Put region around whole current or following defun (mark-defun)
+  Put region around whole current or following defun (`mark-defun').
+
+M-; Insert or align comment (indent-for-comment)
+You can also use `Meta-;' to align an existing comment.  If a line
+already contains the string that starts comments, `M-;' just moves
+point after it and re-indents it to the conventional place.
+Even when an existing comment is properly aligned, `M-;' is still
+useful for moving directly to the start of the comment.
+
+M-( Put paren around next sexp(s) insert-parentheses
+M-) move-past-close-and-reindent
+
+`C-u - C-x ;' (`kill-comment') kills the comment on the current
+line, if there is one.
+
+M-. find-tag
+C-u M-. find next alternate definition of last tag specified
+tags-search
+M-, tags-loop-continue
+M-x c-begin-of-defun
+M-x c-end-of-defun
+C-c C-u c-up-conditional
+C-c C-\c-backslash-region
+M-/ dabbrev-expand

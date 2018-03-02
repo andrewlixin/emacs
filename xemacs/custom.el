@@ -1,0 +1,18 @@
+(custom-set-variables
+ '(paren-mode (quote blink-paren) nil (paren))
+ '(user-mail-address mail-address))
+(custom-set-faces
+ '(info-node ((t (:bold t))))
+ '(font-lock-string-face ((((class color) (background light)) (:foreground "blue4" :bold t))))
+ '(cperl-hash-face ((((class color) (background light)) (:foreground "Red" :bold t))))
+ '(man-italic ((t (:bold nil :underline t))))
+ '(font-lock-doc-string-face ((((class color) (background light)) (:foreground "blue3" :bold t))))
+ '(font-lock-preprocessor-face ((((class color) (background light)) (:foreground "blue3"))))
+ '(font-lock-variable-name-face ((((class color) (background light)) (:foreground "magenta4"))))
+ '(font-lock-warning-face ((((class color) (background light)) (:foreground "red" :bold t))))
+ '(font-lock-keyword-face ((((class color) (background light)) (:foreground "black" :bold t))))
+ '(font-lock-keywords ((((class color) (background light)) (:foreground "black" :bold t))))
+ '(font-lock-type-face ((((class color) (background light)) (:foreground "steelblue" :bold t))))
+ '(font-lock-comment-face ((((class color) (background light)) (:foreground "blue4" :family "clucida" :bold t :italic nil))))
+ '(font-lock-function-name-face ((((class color) (background light)) (:foreground "steelblue4" :bold t))))
+ '(highlight ((t (:background "darkseagreen2" :bold t))) t))
