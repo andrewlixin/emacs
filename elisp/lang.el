@@ -18,7 +18,7 @@
 ;;	$Log: lang.el,v $
 ;;	Revision 1.29  2018/02/28 19:39:27  xinli
 ;;	Add support for MemVerge.
-;;	
+;;
 ;;	Revision 1.28  2014/02/05 23:58:24  xinli
 ;;	For VMware code base, compile using iscons and set code search path.
 ;;
@@ -402,6 +402,7 @@
   (common-c-c++-java-mode-hook)
   (common-c-c++-mode-hook)
   (c-set-offset 'access-label 0)
+  (c-set-offset 'innamespace 0)
   (setq font-lock-keywords c++-font-lock-keywords-3)
   (when running-xemacs
     (delete-menu-item '("C++")))
