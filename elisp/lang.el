@@ -303,8 +303,16 @@
       (c-comment-line))
     (message "Done")))
 
+(defun font-lock-dummy-fontify-buffer ()
+  (interactive)
+  )
+
 (defun common-c-c++-java-mode-hook ()
   "Hook for C, C++ and JAVA code."
+  ;; Disable font-lock for now, and will reenable in find-file-hooks.
+  ;; This will prevent font-lock-fontify-buffer from being called
+  ;; multiple times.
+  (setq font-lock-fontify-buffer-function 'font-lock-dummy-fontify-buffer)
   (font-lock-mode 1)
   ;;(c-add-style "PERSONAL" my-c-style t)
   (when running-xemacs
@@ -401,7 +409,7 @@
   "Hook for C++ code."
   (common-c-c++-java-mode-hook)
   (common-c-c++-mode-hook)
-  (c-set-offset 'access-label 0)
+  (c-set-offset 'access-label -1)
   (c-set-offset 'innamespace 0)
   (setq font-lock-keywords c++-font-lock-keywords-3)
   (when running-xemacs
@@ -579,7 +587,8 @@
 	(insert (format "#endif /* _%s_ */\n" file))
 	))))
 
-(defvar additional-include-path '(".") "Additional directories to look for a C/C++ header file")
+(defvar additional-include-path '(".")
+  "Additional directories to look for a C/C++ header file")
 
 (cond ((equal system-type 'windows-nt) ;; Windows
        )
@@ -725,3 +734,12 @@
 (setq cscope-do-not-update-database t)
 
 (setq python-indent-offset 3)
+
+(add-hook 'find-file-hooks
+	  (lambda ()
+	    (interactive)
+	    (column-marker-1 80)
+	    (column-marker-2 90)
+	    (setq font-lock-fontify-buffer-function
+		  'font-lock-default-fontify-buffer)
+	    (column-marker-3 100)))

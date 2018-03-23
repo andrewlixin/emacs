@@ -35,6 +35,8 @@
 
 (load-ignore-error "look-feel")
 
+(load-ignore-error "column-marker")
+
 (load-ignore-error "lang")
 
 (load-ignore-error "csemi")
