@@ -18,7 +18,7 @@
 ;;	$Log: cust.el,v $
 ;;	Revision 1.67  2018/02/28 19:39:27  xinli
 ;;	Add support for MemVerge.
-;;	
+;;
 ;;	Revision 1.66  2017/10/05 20:03:17  xinli
 ;;	Add function set-title-prefix to change frame title.
 ;;
@@ -687,6 +687,20 @@
 (if (fboundp 'jde-mode)
     (push '("\\.java$" . jde-mode ) auto-mode-alist);; :test 'equal)
   (push '("\\.java$" . java-mode ) auto-mode-alist));; :test 'equal))
+
+(unless running-xemacs
+  (load-ignore-error "markdown-mode")
+
+  (autoload 'markdown-mode "markdown-mode"
+    "Major mode for editing Markdown files" t)
+  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+  (autoload 'gfm-mode "markdown-mode"
+    "Major mode for editing GitHub Flavored Markdown files" t)
+  (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+
+  (setq markdown-command "pandoc"))
 
 (line-number-mode 1)
 (column-number-mode 1)
