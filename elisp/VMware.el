@@ -18,7 +18,7 @@
 ;;	$Log: VMware.el,v $
 ;;	Revision 1.2  2014/02/05 23:54:55  xinli
 ;;	Increase font-lock-maximum-size to 10 times of its default.
-;;	
+;;
 ;;	Revision 1.1  2014/02/03 19:19:01  xinli
 ;;	Add support for VMware.
 ;;
@@ -53,3 +53,5 @@
  */
 "))
     (insert-string header)))
+
+(setq-default c-basic-offset 3)

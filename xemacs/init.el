@@ -61,9 +61,7 @@
 
 (load-ignore-error (system-name))
 
-;;(load-ignore-error "VMware")
-
-(load-ignore-error "MemVerge")
+(load-ignore-error "VMware")
 
 ;;(calendar)
 ;;(mark-diary-entries)
