@@ -499,7 +499,7 @@
   (compilation-sentinel proc msg)
   (when (and (string-match "finished.*" msg)
 	     (= 0 (process-exit-status proc)))
-    (delete-other-windows)
+    (delete-window (get-buffer-window (find-buffer-by-name "*compilation*")))
     (setq compilation-search-path nil))
   (when (and (boundp 'make-notification-user)
 	     (not (null make-notification-user)))
@@ -1563,6 +1563,18 @@ bottom of the buffer stack."
 		     '["Reload All Buffers" reload-all-buffers t])
   (define-key global-map [menu-bar buffer reload-all-buffers]
     '("Reload All Buffers" . reload-all-buffers)))
+
+(defun lock-window ()
+  (interactive)
+  (let ((status (window-dedicated-p (selected-window))))
+    (setq status (not status))
+    (set-window-dedicated-p (selected-window) status)
+    (message (format "Lock status %s: %s" (buffer-name)
+		     (if status "Enabled" "Disabled")))))
+
+(if running-xemacs
+    (add-menu-button (list "Buffers")
+		     '["Lock Buffer" lock-window t]))
 
 (defun find-same-file-in-branch ()
   (interactive)
