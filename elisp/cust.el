@@ -1600,3 +1600,9 @@ bottom of the buffer stack."
 (global-set-key [(meta z)] 'copy-primary-selection)
 (global-set-key [(meta v)] 'yank-clipboard-selection)
 (global-set-key [(meta b)] 'kill-primary-selectionection)
+
+(defun resolve-file-name ()
+  (when (stringp buffer-file-name)
+    (setq buffer-file-name (file-truename buffer-file-name))))
+
+(add-hook 'find-file-hooks 'resolve-file-name)
